@@ -48,7 +48,6 @@ input {
 .data-titles {
   display: flex;
   justify-content: space-around;
-  padding-left: 10px;
 }
 
 li {
@@ -70,8 +69,8 @@ li {
 
 .table-list {
   display: flex;
-  justify-content: space-around;
-  padding-left: 10px;
+  justify-content: space-between;
+  padding: 0 30px;
 }
 
 .edit-button {

@@ -72,13 +72,14 @@ function Form() {
       <div>
         <form className="input-form" onSubmit={addDistance}>
           <label>
-            <span>Дата (ДД.ММ.ГГ)</span>
-            <input name='date' type='text' value={form.date} onChange={handleEvent} required ></input>
+            <span>Дата (ДД.ММ.ГГГГ)</span>
+            <input name='date' type='text' value={form.date} onChange={handleEvent}
+              placeholder="ДД.ММ.ГГГГ" required ></input>
           </label>
           <label>
             <span>Пройдено км</span>
             <input name="distance" type="number" value={form.distance} onChange={handleEvent} step="0.1"
-              required min="0" max="50"></input>
+             placeholder="0.0 " required  min="0" max="50"></input>
           </label>
           <button className="submit" type="submit">ОК</button>
         </form>
