@@ -23,26 +23,26 @@ function Form() {
 
   function addDistance(event) {
     event.preventDefault();
-        
-    if (form.date === '' && form.distance === ''){
+
+    if (form.date === '' && form.distance === '') {
       return
-    } 
-    
+    }
+
     if (form.date !== '' && form.distance !== '') {
       for (let i = 0; i < list.length; i++) {
         if (form.date === list[i].date) {
           list[i].distance = Number(list[i].distance) + Number(form.distance)
           setForm((prevList) => ({
             ...prevList, [list[i].distance]: event.target.value
-          })); 
+          }));
           console.log(list)
           return list
         }
       }
     }
 
-    list.unshift(form)  
-       
+    list.unshift(form)
+
     list.sort(function (a, b) {
       if (a.date < b.date) {
         return 1
@@ -60,8 +60,8 @@ function Form() {
       if (list[i].date === event.target.closest('ul').firstChild.textContent) {
         list.splice(i, 1);
       }
-    } 
-    
+    }
+
     setForm((prevForm) => ({
       ...prevForm
     }))
@@ -73,11 +73,12 @@ function Form() {
         <form className="input-form" onSubmit={addDistance}>
           <label>
             <span>Дата (ДД.ММ.ГГ)</span>
-            <input name='date' type='text' value={form.date} onChange={handleEvent}></input>
+            <input name='date' type='text' value={form.date} onChange={handleEvent} required ></input>
           </label>
           <label>
             <span>Пройдено км</span>
-            <input name="distance" type="number" value={form.distance} onChange={handleEvent} min="0" max="50"></input>
+            <input name="distance" type="number" value={form.distance} onChange={handleEvent} step="0.1"
+              required min="0" max="50"></input>
           </label>
           <button className="submit" type="submit">ОК</button>
         </form>
